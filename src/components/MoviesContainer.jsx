@@ -1,5 +1,5 @@
-import { useLoaderData, Link } from "react-router-dom";
-import { getInitialMovies, changeToNextPage } from "../Context";
+import { useLoaderData } from "react-router-dom";
+import { getInitialMovies } from "../Context";
 import MovieCard from "./MovieCard";
 
 const MoviesContainer = () => {
@@ -20,8 +20,8 @@ const MoviesContainer = () => {
         )
       }
       <div className="flex justify-center my-4">
-        <Link><button className='px-6 py-2 m-1 rounded-xl bg-gray-300 text-black hover:bg-black hover:text-white border-black border-2'>Prev</button></Link>
-        <Link><button className='px-6 py-2 m-1 rounded-xl bg-gray-300 text-black hover:bg-black hover:text-white border-black border-2'>Next</button></Link>
+        <button className='px-6 py-2 m-1 rounded-xl bg-gray-300 text-black hover:bg-black hover:text-white border-black border-2'>Prev</button>
+        <button className='px-6 py-2 m-1 rounded-xl bg-gray-300 text-black hover:bg-black hover:text-white border-black border-2'>Next</button>
       </div>
     </div>
   )

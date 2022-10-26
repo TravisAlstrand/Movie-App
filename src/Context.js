@@ -31,15 +31,3 @@ export async function getMovieDetails(id) {
     throw { message: results.statusText , status: results.status };
   }
 }
-
-// function to load next page of search results
-export async function changeToNextPage() {
-  const results = await api('s', 'batman', 2);
-  const response = await results.json();
-
-  if (results.status === 200) {
-    return response
-  } else {
-    throw { message: results.statusText , status: results.status };
-  }
-}
