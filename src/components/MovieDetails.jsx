@@ -1,9 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-import { handleGetMovieDetails } from "../Context";
+import { getMovieDetails } from "../Context";
 
 const MovieDetails = () => {
   const movie = useLoaderData();
-  console.log(movie)
 
   return (
     <>
@@ -36,5 +35,5 @@ const MovieDetails = () => {
 export default MovieDetails;
 
 export function loader({params}) {
-  return handleGetMovieDetails(params.id);
+  return getMovieDetails(params.id);
 }
