@@ -3,12 +3,12 @@ import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } 
 // COMPONENTS
 import RootLayout from './components/RootLayout';
 import MoviesContainer, { loader as initMoviesLoader } from './components/MoviesContainer';
-import MovieDetails from './components/MovieDetails';
+import MovieDetails, { loader as movieDetailsLoader } from './components/MovieDetails';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<RootLayout />}>
     <Route index element={<MoviesContainer />} loader={initMoviesLoader} />
-    <Route path='/movie/:id' element={<MovieDetails />} />
+    <Route path='/movie/:id' element={<MovieDetails />} loader={movieDetailsLoader} />
   </Route>
 ))
 
