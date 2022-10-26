@@ -5,16 +5,19 @@ import MovieCard from "./MovieCard";
 const MoviesContainer = () => {
 
   const loaderData = useLoaderData();
-  console.log(loaderData)
-  const movies = loaderData.Search;
-  console.log(movies)
-
+  let movies = [];
+  if (loaderData.Search) {
+    movies = loaderData.Search;
+  }
+  
   return (
     <div className='flex flex-wrap justify-between w-9/12 m-auto'>
-      {
+      { movies.length ? (
         movies.map((movie, index) => {
-          <MovieCard key={index} movie={movie} />
-        })
+          return <MovieCard key={index} movie={movie} />
+        })) : (
+          <MovieCard movie={loaderData} />
+        )
       }
     </div>
   )
