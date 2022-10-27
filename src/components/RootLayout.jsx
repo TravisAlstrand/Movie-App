@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, redirect } from "react-router-dom";
+import { getSearchedMovies } from "../Context";
 
 import Header from "./Header";
 import SearchBar from "./SearchBar";
@@ -18,3 +19,14 @@ function RootLayout() {
 }
 
 export default RootLayout;
+
+export async function action({request}) {
+  const formData = await request.formData();
+  const search = {
+    query: formData.get('searchBar')
+  }
+  console.log(search)
+  const response = await getSearchedMovies(search.query);
+  console.log(response.Search)
+  return redirect(`/search/${search.query}`);
+}

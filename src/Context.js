@@ -9,8 +9,8 @@ const api = (letter, query, page, plot) => {
 };
 
 // function to handle movie search
-export async function getInitialMovies() {
-  const results = await api('s', 'batman', 1);
+export async function getSearchedMovies(query) {
+  const results = await api('s', query);
   const response = await results.json();
 
   if (results.status === 200) {
